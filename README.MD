@@ -198,7 +198,7 @@ Variabel utama yang digunakan:
     **Menghitung Total Data Unik**
     Jumlah rincian data unik dapat dilihat pada gambar berikut:
 
-    ![totalunik](totalunik.png)
+    ![totalunik](assets/totalunik.png)
     Berdasarkan hasil di atas, terdapat 45.436 film pada dataset movies, 9.066 film yang muncul dalam dataset ratings, serta 671 pengguna yang memberikan rating dalam dataset ratings.
 
     - **Distribusi Ratings**
