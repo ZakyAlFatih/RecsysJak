@@ -51,11 +51,45 @@ Dua pendekatan utama dalam sistem rekomendasi yang digunakan adalah:
 Dataset utama berasal dari Kaggle:
 (https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
 
-Statistik Umum Data set
-![Statistik](https://raw.githubusercontent.com/ZakyAlFatih/RecsysJak/main/assets/statistik.png)
+### Informasi Dataset
 
-- **movies_metadata.csv**: Detail 45.436 film.
-- **ratings_small.csv**: 100.004 rating dari 671 pengguna terhadap 9.066 film.
+Dataset yang digunakan adalah The Movies Dataset. Informasi mengenai dataset film ini dijelaskan sebagai berikut:
+
+Sumber: Dataset tersedia di Kaggle
+
+Pemilik Dataset: Rounak Banik
+
+Lisensi: CC0 (Public Domain)
+
+Kategori: Movies & TV Shows
+
+Format dan Ukuran Berkas: ZIP Version 7 dengan ukuran sekitar 943.76 MB
+
+Jumlah File dalam Dataset: Terdiri dari 7 file CSV
+
+Dari informasi tersebut, diketahui bahwa file-file dalam dataset ini berisi metadata untuk sekitar 45.000 film yang tercakup dalam Full MovieLens Dataset. Data film tersebut merupakan film-film yang dirilis pada atau sebelum Juli 2017. Informasi yang tersedia meliputi pemeran, kru, kata kunci plot, anggaran, pendapatan, poster, tanggal rilis, bahasa, perusahaan produksi, negara asal, jumlah suara di TMDB, serta rata-rata rating.
+
+Selain itu, dataset ini juga mencakup file yang berisi sekitar 26 juta rating yang diberikan oleh 270.000 pengguna untuk seluruh 45.000 film tersebut. Rating yang digunakan memiliki skala 1 hingga 5 dan berasal dari situs resmi GroupLens.
+
+Berikut penjelasan singkat mengenai file-file dalam kumpulan data ini:
+
+movie_metadata.csv: File utama berisi metadata film untuk 45.000 film dalam dataset Full MovieLens. Fitur yang tersedia antara lain poster, latar belakang, anggaran, pendapatan, tanggal rilis, bahasa, negara produksi, dan perusahaan produksi.
+
+keywords.csv: Berisi kata kunci plot film dalam bentuk objek JSON yang dirangkai.
+
+credits.csv: Informasi tentang pemeran dan kru untuk semua film, disajikan dalam format objek JSON yang dirangkai.
+
+links.csv: File yang memuat ID TMDB dan IMDB dari seluruh film dalam Full MovieLens Dataset.
+
+links_small.csv: Memuat ID TMDB dan IMDB untuk sebagian kecil sekitar 9.000 film dari dataset lengkap.
+
+rating_small.csv: Bagian kecil dari dataset rating, terdiri dari 100.000 rating yang diberikan oleh 700 pengguna untuk 9.000 film.
+
+Statistik Umum Data set
+![Statistik](assets/statistik.png)
+Gambar di atas menunjukkan total data yang terdapat dalam berbagai file dataset film.
+
+Dalam proyek ini, hanya dua file CSV yang digunakan, yaitu ratings_small.csv (disimpan dalam variabel ratings) dan movies_metadata.csv (disimpan dalam variabel movies).
 
 Variabel utama yang digunakan:
 
@@ -64,12 +98,24 @@ Variabel utama yang digunakan:
 | movies_metadata.csv | id, genres, title, vote_average, vote_count | Metadata film        |
 | ratings_small.csv   | userId, movieId, rating, timestamp          | Data rating pengguna |
 
-### Eksplorasi Data Singkat
+- **movies_metadata.csv**: Detail 45.436 film.
+- **ratings_small.csv**: 100.004 rating dari 671 pengguna terhadap 9.066 film.
 
 - Rating terbanyak: 4.0 (28.7%), 3.0 (20.1%), 5.0 (15.1%).
 - Genre paling banyak: Drama, Comedy (>13.000 film).
 - Film dengan skor tertinggi: _Dilwale Dulhania Le Jayenge_.
 - Film dengan rating terbanyak: _Terminator 3: Rise of the Machines_ (324 rating, rata-rata 4.25).
+
+### Eksplorasi Data (EDA)
+
+1. Analisis Univariate
+   Pada tahap ini, dilakukan analisis statistik terhadap variabel movies dan ratings untuk memahami distribusi, pola, dan karakteristik data. Selain itu, grafik digunakan untuk memvisualisasikan distribusi genre dan rating film, serta menggambarkan hubungan antar fitur dalam dataset.
+
+   Deskripsi Variabel
+
+   Pada tahap ini, akan disajikan penjelasan mengenai variabel-variabel yang digunakan, yaitu:
+   a. Ratings (file ratings_small.csv)
+   Penjelasan mengenai variabel tersebut.
 
 ---
 
