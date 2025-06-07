@@ -51,6 +51,9 @@ Dua pendekatan utama dalam sistem rekomendasi yang digunakan adalah:
 Dataset utama berasal dari Kaggle:
 (https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
 
+Statistik Umum Data set
+![Statistik](https://raw.githubusercontent.com/ZakyAlFatih/RecsysJak/main/assets/statistik.png)
+
 - **movies_metadata.csv**: Detail 45.436 film.
 - **ratings_small.csv**: 100.004 rating dari 671 pengguna terhadap 9.066 film.
 
