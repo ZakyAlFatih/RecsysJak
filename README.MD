@@ -48,7 +48,7 @@ Dua pendekatan utama dalam sistem rekomendasi yang digunakan adalah:
 
 ## Data Understanding
 
-Dataset utama berasal dari Kaggle:
+Dataset berasal dari Kaggle:
 (https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
 
 ### Informasi Dataset
@@ -190,10 +190,10 @@ Variabel utama yang digunakan:
 
             *Variable movies*
 
-        ![tipedata_movies ](assets/movietype.png)
-        _Variabel ratings_
-        ![tipedata_rating](assets/ratype.png)
-        Dapat dilihat pada informasi dataset **movies** 20 variable dengan tipe data object dan 4 variabel bertipe float64. Sedangkan pada informasi dataset **ratings** terdapat 1 variabel dengan tipe data float64 dan 3 variable dengan tipe data int64.
+    ![tipedata_movies ](assets/movietype.png)
+    _Variabel ratings_
+    ![tipedata_rating](assets/ratype.png)
+    Dapat dilihat pada informasi dataset **movies** 20 variable dengan tipe data object dan 4 variabel bertipe float64. Sedangkan pada informasi dataset **ratings** terdapat 1 variabel dengan tipe data float64 dan 3 variable dengan tipe data int64.
 
     **Menghitung Total Data Unik**
     Jumlah rincian data unik dapat dilihat pada gambar berikut:
