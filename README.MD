@@ -108,14 +108,121 @@ Variabel utama yang digunakan:
 
 ### Eksplorasi Data (EDA)
 
-1. Analisis Univariate
-   Pada tahap ini, dilakukan analisis statistik terhadap variabel movies dan ratings untuk memahami distribusi, pola, dan karakteristik data. Selain itu, grafik digunakan untuk memvisualisasikan distribusi genre dan rating film, serta menggambarkan hubungan antar fitur dalam dataset.
+1.  Analisis Univariate
+    Pada tahap ini, dilakukan analisis statistik terhadap variabel movies dan ratings untuk memahami distribusi, pola, dan karakteristik data. Selain itu, grafik digunakan untuk memvisualisasikan distribusi genre dan rating film, serta menggambarkan hubungan antar fitur dalam dataset.
 
-   Deskripsi Variabel
+    - **Deskripsi Variabel**
 
-   Pada tahap ini, akan disajikan penjelasan mengenai variabel-variabel yang digunakan, yaitu:
-   a. Ratings (file ratings_small.csv)
-   Penjelasan mengenai variabel tersebut.
+    Pada tahap ini, akan disajikan penjelasan mengenai variabel-variabel yang digunakan, yaitu:
+    a. Ratings (file ratings_small.csv)
+    Penjelasan mengenai variabel tersebut.
+    ![ratingInfo](assets/ratinfo.png)
+
+    Berdasarkan gambar di atas, variabel ratings terdiri dari 100.004 baris dan 4 kolom. Penjelasan masing-masing kolom adalah sebagai berikut:
+
+        userId: Merupakan identitas unik untuk setiap pengguna yang memberikan rating. Digunakan untuk mengidentifikasi pengguna secara anonim.
+
+        movieId: Merupakan identitas unik untuk setiap film yang dinilai oleh pengguna. ID ini digunakan untuk menghubungkan data dengan informasi film yang lebih lengkap.
+
+        rating: Nilai penilaian yang diberikan oleh pengguna terhadap sebuah film, menggunakan skala 1 hingga 5. Semakin tinggi nilainya, semakin positif penilaian pengguna terhadap film tersebut.
+
+        timestamp: Waktu ketika rating diberikan, direpresentasikan dalam format UNIX timestamp, yaitu jumlah detik sejak 1 Januari 1970.
+
+    b. Movies (movies_metadata.csv)
+    Penjelasan mengenai variabel-variabel dalam dataset movies dapat dilihat pada gambar berikut:
+    ![ratingInfo](assets/movieInfo.png)
+    Berdasarkan gambar di atas, dataset movies terdiri dari 100.004 baris dan 24 kolom. Penjelasan dari masing-masing variabel adalah sebagai berikut:
+
+         adult: Menunjukkan apakah film tersebut mengandung konten dewasa. Nilai yang digunakan biasanya berupa True atau False.
+
+         belongs_to_collection: Informasi mengenai apakah film termasuk dalam suatu koleksi atau seri tertentu (contohnya, seri Harry Potter). Biasanya ditampilkan dalam format JSON atau teks deskriptif.
+
+         budget: Anggaran produksi film, umumnya dalam satuan dolar AS (USD), dengan nilai berupa angka.
+
+         genres: Daftar genre yang terkait dengan film, seperti Action, Comedy, atau Drama. Formatnya biasanya berupa JSON atau daftar string.
+
+         homepage: Alamat URL resmi dari situs web film tersebut.
+
+         id: ID unik yang mengidentifikasi film, biasanya berasal dari database seperti TMDb.
+
+         imdb_id: ID unik film di platform IMDb, dengan format seperti tt1234567.
+
+         original_language: Kode bahasa asli film menggunakan standar ISO 639-1, contohnya en untuk Bahasa Inggris.
+
+         original_title: Judul asli film dalam bahasa produksinya.
+
+         overview: Ringkasan atau deskripsi singkat mengenai alur cerita film.
+
+         popularity: Skor popularitas film, biasanya dihitung melalui algoritma dari platform tertentu.
+
+         poster_path: Path menuju file poster film. Biasanya perlu digabungkan dengan URL dasar agar bisa diakses penuh.
+
+         production_companies: Informasi tentang perusahaan yang memproduksi film. Umumnya dalam format JSON yang mencakup nama dan ID perusahaan.
+
+         production_countries: Negara-negara tempat produksi film berlangsung. Biasanya dalam format JSON yang menyertakan nama dan kode negara.
+
+         release_date: Tanggal resmi perilisan film dalam format YYYY-MM-DD.
+
+         revenue: Pendapatan yang dihasilkan film secara keseluruhan, umumnya dalam satuan USD.
+
+         runtime: Durasi film dalam satuan menit.
+
+         spoken_languages: Bahasa yang digunakan dalam dialog film. Biasanya dalam bentuk JSON yang menyertakan kode dan nama bahasa.
+
+         status: Status film tersebut, misalnya Released (Telah Dirilis) atau In Production (Sedang Diproduksi).
+
+         tagline: Frasa atau slogan promosi yang melekat pada film.
+
+         title: Judul utama film yang umum digunakan dalam publikasi.
+
+         video: Menunjukkan apakah film memiliki video terkait. Nilainya biasanya True atau False.
+
+         vote_average: Rata-rata nilai rating dari pengguna, biasanya menggunakan skala 1–10.
+
+         vote_count: Jumlah total rating atau ulasan yang diberikan pada film tersebut.
+
+    **Menghitung Total Dataset**
+
+            Pada tahap ini, dilakukan perhitungan jumlah entri dan kolom dari masing-masing dataset. Dataset movies terdiri dari 45.466 baris dengan 5 kolom, sedangkan dataset ratings memiliki 100.004 baris dan 4 kolom.
+
+    **Memeriksa Tipe Data**
+    Infromasi dari tipe data variabel dapat dilihat pada gambar berikut:
+
+            *Variable movies*
+
+        ![tipedata_movies ](assets/movietype.png)
+        _Variabel ratings_
+        ![tipedata_rating](assets/ratype.png)
+        Dapat dilihat pada informasi dataset **movies** 20 variable dengan tipe data object dan 4 variabel bertipe float64. Sedangkan pada informasi dataset **ratings** terdapat 1 variabel dengan tipe data float64 dan 3 variable dengan tipe data int64.
+
+    **Menghitung Total Data Unik**
+    Jumlah rincian data unik dapat dilihat pada gambar berikut:
+
+    ![totalunik](totalunik.png)
+    Berdasarkan hasil di atas, terdapat 45.436 film pada dataset movies, 9.066 film yang muncul dalam dataset ratings, serta 671 pengguna yang memberikan rating dalam dataset ratings.
+
+    - **Distribusi Ratings**
+      Langkah ini bertujuan untuk:
+    - Mengidentifikasi nilai rating yang paling umum diberikan oleh pengguna.
+    - Menilai apakah data rating cenderung condong ke satu nilai (misalnya, lebih banyak rating tinggi atau rendah).
+    - Membantu memahami pola preferensi pengguna.
+
+    Tampilan distribusi rating dapat dilihat pada gambar berikut:
+    ![distribusi-rating](assets/distri_rats.png)
+    Berdasarkan diagram plot rating di atas, terlihat bahwa nilai rating yang paling sering diberikan oleh pengguna adalah 4.0 dengan persentase 28,7%, diikuti oleh rating 3.0 sebesar 20,1%, dan rating 5.0 sebesar 15,1%. Sementara itu, nilai rating lainnya memiliki persentase di bawah 12,0%.
+
+    - **Distribusi Genres**
+      Distribusi genre film merupakan aspek penting dalam sistem rekomendasi karena membantu memahami preferensi pengguna dan pola konsumsi film. Pada proyek ini, digunakan metode visualisasi data berupa grafik batang untuk menampilkan proporsi setiap genre secara visual, sehingga memudahkan pemahaman.
+      Pada tahap ini, dilakukan proses pembersihan, pengolahan, dan normalisasi data pada kolom genres di DataFrame df_movies. Beberapa fungsi yang digunakan antara lain:
+    - fillna('[]'): Mengisi nilai yang kosong atau NaN pada kolom genres dengan string kosong yang berbentuk list ([]).
+    - apply(literal_eval): Fungsi literal_eval dari pustaka ast yang mengubah string yang berformat seperti literal Python menjadi tipe data list.
+    - apply(lambda x: [i['name'] for i in x] if isinstance(x, list) else []): Fungsi lambda ini memproses setiap elemen pada kolom genres. Jika nilai merupakan list, maka akan diambil isi dari kunci name pada setiap elemen. Jika bukan list, maka akan dikembalikan list kosong ([]).
+
+    Selanjutnya, setiap elemen dalam daftar genre dipecah menjadi baris terpisah menggunakan fungsi explode(). Setelah itu, jumlah kemunculan tiap genre dihitung dengan value_counts(). Terakhir, dibuat diagram batang menggunakan plot(kind='bar') untuk menampilkan distribusi genre tersebut.
+    Langkah pertama adalah membuat variabel dataframe baru sebagai dasar analisis visualisasi data. Kemudian, fitur genres diubah ke dalam format list agar dapat dianalisis dengan mudah. Berikut adalah grafik batang yang menggambarkan distribusi genre film.
+
+    ![genres_distribusi](assets/distri_genre.png)
+    Dari gambar grafik diatas, dapat dilihat bahwa genre Drama dan Comedy paling banyak tersebar pada setiap film dalam dataset dengan jumah sebesar 20265 dan 13182. Sedangkan genre yang lain berada dibawah 10000. Terlihat juga ada 12 genre dengan jumlah 1.
 
 ---
 
@@ -133,9 +240,12 @@ Langkah-langkah utama:
 - Normalisasi rating ke rentang [0,1].
 - Bagi data jadi training (80%) dan validasi (20%).
 
+**Penjelasan singkat:**
+Tahapan data preparation tersebut penting dilakukan untuk memastikan data yang digunakan bersih, konsisten, dan dalam format yang sesuai agar model dapat belajar dengan baik. Menghapus data yang hilang dan duplikat mencegah bias dan kesalahan, sedangkan pengkodean dan normalisasi data memudahkan model dalam proses training. Sampling dan pembagian data ke set training dan validasi juga diperlukan untuk evaluasi performa model secara objektif. Dengan langkah ini, kualitas data terjaga sehingga hasil prediksi lebih akurat dan dapat diandalkan.
+
 ---
 
-## Modeling
+## Modeling & Results
 
 ### 1. Content-Based Filtering (CBF)
 
@@ -154,6 +264,11 @@ Langkah-langkah utama:
 - Terbatas pada fitur genre.
 - Bisa overspecialize, kurang eksplorasi.
 - Sulit untuk item baru tanpa fitur.
+
+#### Result (CBF)
+
+![cbf_result](assets/cbf_result.png)
+Hasil yang diperoleh berupa daftar judul film yang memiliki kesamaan genre dengan film yang dipilih yaitu ("Made in Hong Kong")
 
 ### 2. Collaborative Filtering (CF) dengan Deep Learning
 
@@ -175,6 +290,12 @@ Langkah-langkah utama:
 - Model kurang transparan (black box).
 - Pelatihan mahal secara komputasi.
 
+#### Result (CF)
+
+![cf_input](assets/cf_input.png)
+![cf_result](assets/cf_result.png)
+Hasil yang diperoleh berupa daftar judul film berdasarkan film dengan rating tertinggi dari user dengan id 537
+
 ---
 
 ## Evaluation
@@ -192,8 +313,8 @@ Langkah-langkah utama:
 
 | Data       | Loss (MSE) | MAE    | RMSE   |
 | ---------- | ---------- | ------ | ------ |
-| Training   | 0.0058     | 0.0337 | 0.0447 |
-| Validation | 0.0537     | 0.1735 | 0.2233 |
+| Training   | 0.0293     | 0.1300 | 0.1679 |
+| Validation | 0.0471     | 0.1669 | 0.2132 |
 
 - Visualisasi metrik menunjukkan penurunan MAE dan RMSE pada training, stabil di validasi, menandakan model belajar dengan baik namun perlu awasi overfitting.
 

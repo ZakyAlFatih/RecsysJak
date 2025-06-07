@@ -941,7 +941,7 @@ history = model.fit(
     callbacks=[early_stopping]
 )
 
-"""hasil train memperoleh nilai mean_absolute_error: 0.0337  dan root_mean_squared_error: 0.2233
+"""Hasil training menunjukkan MAE sebesar 0.1669 dan RMSE sebesar 0.2132, yang mencerminkan akurasi model dalam memprediksi rating film.
 
 ## C. Pengujian Rekomendasi Movie CF
 
